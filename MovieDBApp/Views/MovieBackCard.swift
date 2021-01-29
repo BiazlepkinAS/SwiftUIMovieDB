@@ -14,7 +14,7 @@ struct MovieBackCard: View {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
                 
-                if self.imageLoader != nil {
+                if self.imageLoader.image != nil {
                     Image(uiImage: self.imageLoader.image!)
                         .resizable()
                 }
