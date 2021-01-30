@@ -35,7 +35,7 @@ class MovieStore: MovieServices {
             completion(.failure(.invalidEndPoint))
             return
         }
-        self.loadURLandDecode(url: url, parametrs: ["language":"ru-RU", "include_adult": "false", "region": "US", "query": query] , completion: completion) // change to RU
+        self.loadURLandDecode(url: url, parametrs: ["language":"en-EN", "include_adult": "false", "region": "US", "query": query] , completion: completion) // change to RU
     }
     
     

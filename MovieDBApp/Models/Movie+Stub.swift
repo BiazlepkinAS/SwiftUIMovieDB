@@ -1,9 +1,4 @@
-//
-//  Movie+Stub.swift
-//  MovieDBApp
-//
-//  Created by Andrei Bezlepkin on 29.01.21.
-//
+
 
 import Foundation
 

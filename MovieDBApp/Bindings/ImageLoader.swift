@@ -1,9 +1,4 @@
-//
-//  ImageLoader.swift
-//  MovieDBApp
-//
-//  Created by Andrei Bezlepkin on 29.01.21.
-//
+
 
 import SwiftUI
 import UIKit
@@ -11,6 +6,7 @@ import UIKit
 private let _imageCach = NSCache<AnyObject, AnyObject>()
 
 class ImageLoader: ObservableObject {
+    
     @Published var image: UIImage?
     @Published var isLoad = false
     

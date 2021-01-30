@@ -9,7 +9,9 @@ protocol MovieServices {
 
 }
 
-enum MovieListEndPoints: String, CaseIterable {
+enum MovieListEndPoints: String, CaseIterable, Identifiable {
+    var id: String { rawValue }
+    
     case nowPlaying = "now_playing"
     case upComing
     case topRated = "top_rated"
