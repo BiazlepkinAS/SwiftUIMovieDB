@@ -5,7 +5,7 @@ import Foundation
 protocol MovieServices {
     func fetchMovie(from endpoint: MovieListEndPoints, completion: @escaping (Result<MovieResponce, MovieError>) -> ())
     func fetchMovie(id: Int, completion: @escaping (Result<Movie, MovieError>) ->())
-    func searchingMovi(query: String, completion: @escaping (Result<MovieResponce, MovieError>) -> ())
+    func searchingMovie(query: String, completion: @escaping (Result<MovieResponce, MovieError>) -> ())
 
 }
 

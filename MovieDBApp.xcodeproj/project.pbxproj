@@ -35,6 +35,7 @@
 		0983286C25C6E80D003B5B87 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286B25C6E80D003B5B87 /* SafariView.swift */; };
 		0983286F25C6EF18003B5B87 /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286E25C6EF18003B5B87 /* MovieSearchView.swift */; };
 		0983287225C6EF79003B5B87 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983287125C6EF79003B5B87 /* SearchBar.swift */; };
+		0983287525C72001003B5B87 /* MovieSearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983287425C72001003B5B87 /* MovieSearchState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		0983286B25C6E80D003B5B87 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		0983286E25C6EF18003B5B87 /* MovieSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchView.swift; sourceTree = "<group>"; };
 		0983287125C6EF79003B5B87 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		0983287425C72001003B5B87 /* MovieSearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				092E8C5125C3F7CC00E56EEE /* ImageLoader.swift */,
 				0983285625C5E242003B5B87 /* MovieListState.swift */,
 				0983286725C5EFCE003B5B87 /* MovieDetailState.swift */,
+				0983287425C72001003B5B87 /* MovieSearchState.swift */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				092E8C3D25C34F2100E56EEE /* Utilities.swift in Sources */,
 				0983284D25C45A2B003B5B87 /* MoviePoster.swift in Sources */,
 				092E8C3625C33B0600E56EEE /* MovieServices.swift in Sources */,
+				0983287525C72001003B5B87 /* MovieSearchState.swift in Sources */,
 				092E8C4D25C3F78900E56EEE /* MovieBackCard.swift in Sources */,
 				0983285C25C5E49B003B5B87 /* ActivityIndicatorView.swift in Sources */,
 				0983286F25C6EF18003B5B87 /* MovieSearchView.swift in Sources */,

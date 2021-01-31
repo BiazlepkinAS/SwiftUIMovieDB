@@ -25,6 +25,16 @@ struct ContentView: View {  ///login - email@gmail.com PSW - FaceID
                             }
                         }
                     tag(0)
+                    
+                    MovieSearchView()
+                        .tabItem {
+                            VStack {
+                                Image(systemName:  "magnifyingglass")
+                                Text("Search")
+                            }
+                        }
+                    tag(1)
+                    
                 }
                 
                 
