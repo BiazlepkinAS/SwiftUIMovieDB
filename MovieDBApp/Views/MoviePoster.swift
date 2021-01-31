@@ -1,9 +1,3 @@
-//
-//  MoviePoster.swift
-//  MovieDBApp
-//
-//  Created by Andrei Bezlepkin on 29.01.21.
-//
 
 import SwiftUI
 
@@ -11,8 +5,6 @@ struct MoviePoster: View {
     
     let movie: Movie
     @ObservedObject var imageLoader = ImageLoader()
-    
-    
     var body: some View {
         
         ZStack {
@@ -30,7 +22,6 @@ struct MoviePoster: View {
                 
                 Text(movie.title)
                     .multilineTextAlignment(.center)
-                
             }
         }
         .frame(width: 204, height: 306)

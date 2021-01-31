@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 import UIKit
 
@@ -9,11 +7,9 @@ class ImageLoader: ObservableObject {
     
     @Published var image: UIImage?
     @Published var isLoad = false
-    
     var imageCash = _imageCach
     
     func loadImage(with url: URL){
-        
         let urlString = url.absoluteString
         if let imageFromCash = imageCash.object(forKey: urlString as AnyObject) as? UIImage {
             self.image = imageFromCash
@@ -33,8 +29,7 @@ class ImageLoader: ObservableObject {
             }catch {
                 print(error.localizedDescription)
             }
+        }
     }
-    
-}
 }
 

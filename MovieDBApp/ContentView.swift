@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 import LocalAuthentication
 
@@ -7,15 +5,13 @@ struct ContentView: View {  ///login - email@gmail.com PSW - FaceID
     
     @AppStorage("status") var logged = false
     var body: some View {
-        
         NavigationView{
-            
             if logged{
                 
-//                Text("User Logged in ....")
-//                    .navigationTitle("Home")
-//                    .navigationBarHidden(false)
-//                    .preferredColorScheme(.light)
+                //                Text("User Logged in ....")
+                //                    .navigationTitle("Home")
+                //                    .navigationBarHidden(false)
+                //                    .preferredColorScheme(.light)
                 TabView {
                     MovieLIst()
                         .tabItem {
@@ -25,7 +21,6 @@ struct ContentView: View {  ///login - email@gmail.com PSW - FaceID
                             }
                         }
                     tag(0)
-                    
                     MovieSearchView()
                         .tabItem {
                             VStack {
@@ -34,23 +29,13 @@ struct ContentView: View {  ///login - email@gmail.com PSW - FaceID
                             }
                         }
                     tag(1)
-                    
                 }
-                
-                
-                
-                
-                
-                
-                
             }
             else {
-               
                 HomeCsreen()
                     .preferredColorScheme(.dark)
                     .navigationBarHidden(true)
             }
-            
         }
     }
 }
@@ -69,45 +54,31 @@ struct HomeCsreen: View {
     @AppStorage("status") var logged = false
     
     var body: some View {
-        
         VStack{
-            
             Spacer(minLength: 0)
-            
             Image("logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal, 35)
                 .padding(.vertical)
-            
             HStack{
-                
                 VStack(alignment: .leading, spacing: 12, content: {
-                    
                     Text("Login")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                    
                     Text("Please sign in to continiue")
                         .foregroundColor(Color.white.opacity(0.5))
-                    
                 })
-                
                 Spacer(minLength: 0)
-                
             }
             .padding()
             .padding(.leading, 15)
-            
             HStack{
-                
                 Image(systemName: "envelope")
                     .font(.title2)
                     .foregroundColor(.white)
                     .frame(width: 35)
-                
-                
                 TextField("Email", text: $userName)
                     .autocapitalization(.none)
             }
@@ -115,15 +86,11 @@ struct HomeCsreen: View {
             .background(Color.white.opacity(userName == "" ? 0 : 0.12))
             .cornerRadius(15)
             .padding(.horizontal)
-            
             HStack{
-                
                 Image(systemName: "lock")
                     .font(.title2)
                     .foregroundColor(.white)
                     .frame(width: 35)
-                
-                
                 SecureField("Password", text: $password)
                     .autocapitalization(.none)
             }
@@ -132,7 +99,6 @@ struct HomeCsreen: View {
             .cornerRadius(15)
             .padding(.horizontal)
             .padding(.top)
-            
             HStack(spacing: 15) {
                 Button(action: {}, label: {
                     Text("LogIn")
@@ -145,10 +111,8 @@ struct HomeCsreen: View {
                 })
                 .opacity(userName != "" && password != "" ? 1 : 0.5 )
                 .disabled(userName != "" && password != "" ? false : true)
-                
                 if getBiometricStatus() {
                     Button(action: autheficateUser, label: {
-                        
                         Image(systemName: LAContext().biometryType == .faceID ? "faceid" : "touchid")
                             .font(.title)
                             .foregroundColor(.black)
@@ -159,57 +123,43 @@ struct HomeCsreen: View {
                 }
             }
             .padding(.top)
-            
             Button(action: {}, label: {
                 Text("Forgot password")
                     .foregroundColor(Color(#colorLiteral(red: 0.09757234901, green: 0.7179021835, blue: 0.8671984673, alpha: 1)))
             })
             .padding(.top, 10)
-            
             Spacer(minLength: 0)
-            
             HStack(spacing: 6){
-                
                 Text("Don't have an account?")
                     .foregroundColor(Color.white.opacity(0.6))
-                
                 Button(action: {}, label: {
                     Text("Sign Up")
                         .foregroundColor(Color(#colorLiteral(red: 0.09757234901, green: 0.7179021835, blue: 0.8671984673, alpha: 1)))
                         .fontWeight(.heavy)
-                    
                 })
             }
             .padding(.vertical)
-            
         }
         .background(Color(#colorLiteral(red: 0.009844466113, green: 0.145662576, blue: 0.2554561198, alpha: 1)).ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
-        
     }
     
     func getBiometricStatus()->Bool {
-        
         let scanner = LAContext()
         if userName == user && scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none){
-            
             return true
         }
         return false
     }
     
     func autheficateUser() {
-        
         let scanner = LAContext()
         scanner.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To unlock\(userName)") { (status, error) in
             if error != nil {
                 print(error!.localizedDescription)
                 return
             }
-            
             withAnimation(.easeOut){logged = true}
         }
     }
 }
-
-

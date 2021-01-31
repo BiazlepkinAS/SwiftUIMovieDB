@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct MoviePOsterCarousel: View {
+struct MoviePosterCarousel: View {
     let title: String
     let movies: [Movie]
     
@@ -11,7 +11,6 @@ struct MoviePOsterCarousel: View {
                 .font(.title)
                 .fontWeight(.heavy)
                 .padding(.horizontal)
-            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
                     ForEach(self.movies) { movie in
@@ -19,21 +18,18 @@ struct MoviePOsterCarousel: View {
                             destination: MovieDetails(movieID: movie.id)) {
                             MoviePoster(movie: movie)
                         } .buttonStyle(PlainButtonStyle())
-                        
-                            .padding(.leading, movie.id == self.movies.first!.id ? 16 : 0)
-                            .padding(.trailing, movie.id == self.movies.last!.id ? 16 : 0)
+                        .padding(.leading, movie.id == self.movies.first!.id ? 16 : 0)
+                        .padding(.trailing, movie.id == self.movies.last!.id ? 16 : 0)
                     }
                 }
-                
             }
-            
         }
     }
 }
 
 struct MoviePOsterCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        MoviePOsterCarousel(title: "now playing", movies: Movie.stubbedMovies)
+        MoviePosterCarousel(title: "now playing", movies: Movie.stubbedMovies)
         
     }
 }

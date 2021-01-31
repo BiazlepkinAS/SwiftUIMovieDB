@@ -1,21 +1,18 @@
-
-
 import SwiftUI
 class MovieListState: ObservableObject {
     @Published var movies:  [Movie]?
     @Published var isLoading = false
     @Published var error: NSError?
-    
     private let movieServise: MovieServices
     
     init(movieSetvice:  MovieServices = MovieStore.shared) {
         self.movieServise = movieSetvice
     }
     
-    func loadMovies(with endPOint: MovieListEndPoints) {
+    func loadMovies(with endPoint: MovieListEndPoints) {
         self.movies = nil
         self.isLoading = false
-        self.movieServise.fetchMovie(from: endPOint) { [weak self] (result) in
+        self.movieServise.fetchMovie(from: endPoint) { [weak self] (result) in
             guard let self = self else {return}
             self.isLoading = false
             
@@ -26,7 +23,5 @@ class MovieListState: ObservableObject {
                 self.error = error as NSError
             }
         }
-        
     }
-    
 }

@@ -14,16 +14,14 @@ struct MovieLIst: View {
             List {
                 Group {
                     if nowPlayingState.movies != nil {
-                        MoviePOsterCarousel(title: "Now playing", movies: nowPlayingState.movies!)
+                        MoviePosterCarousel(title: "Now playing", movies: nowPlayingState.movies!)
                     } else {
                         LoadView(isLoading: nowPlayingState.isLoading, error: nowPlayingState.error) {
                             self.nowPlayingState.loadMovies(with: .nowPlaying)
                         }
                     }
                 }
-                
                 .listRowInsets(EdgeInsets(top: 15, leading: 0, bottom: 7, trailing: 0))
-                
                 Group {
                     if upCommingState.movies != nil {
                         MovieBAckCarousel(title: "Top rated", movies: upCommingState.movies!)
@@ -33,9 +31,7 @@ struct MovieLIst: View {
                         }
                     }
                 }
-                
                 .listRowInsets(EdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0))
-                
                 Group {
                     if topRatedState.movies != nil {
                         MovieBAckCarousel(title: "Upcoming", movies: topRatedState.movies!)
@@ -45,9 +41,7 @@ struct MovieLIst: View {
                         }
                     }
                 }
-                
                 .listRowInsets(EdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0))
-                
                 Group {
                     if popularState.movies != nil {
                         MovieBAckCarousel(title: "Popular", movies: popularState.movies!)
@@ -57,9 +51,7 @@ struct MovieLIst: View {
                         }
                     }
                 }
-                
                 .listRowInsets(EdgeInsets(top: 7, leading: 0, bottom: 15, trailing: 0))
-                
             }
             .navigationBarTitle("MovieDB")
         }
