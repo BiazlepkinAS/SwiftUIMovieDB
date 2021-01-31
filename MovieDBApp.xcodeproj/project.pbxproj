@@ -31,7 +31,7 @@
 		0983285C25C5E49B003B5B87 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983285B25C5E49B003B5B87 /* ActivityIndicatorView.swift */; };
 		0983286025C5E5F2003B5B87 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983285F25C5E5F2003B5B87 /* LoadView.swift */; };
 		0983286525C5EF28003B5B87 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286425C5EF28003B5B87 /* MovieDetails.swift */; };
-		0983286825C5EFCE003B5B87 /* MOvieDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286725C5EFCE003B5B87 /* MOvieDetailState.swift */; };
+		0983286825C5EFCE003B5B87 /* MovieDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286725C5EFCE003B5B87 /* MovieDetailState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +61,7 @@
 		0983285B25C5E49B003B5B87 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		0983285F25C5E5F2003B5B87 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
 		0983286425C5EF28003B5B87 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
-		0983286725C5EFCE003B5B87 /* MOvieDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOvieDetailState.swift; sourceTree = "<group>"; };
+		0983286725C5EFCE003B5B87 /* MovieDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +167,7 @@
 			children = (
 				092E8C5125C3F7CC00E56EEE /* ImageLoader.swift */,
 				0983285625C5E242003B5B87 /* MovieListState.swift */,
-				0983286725C5EFCE003B5B87 /* MOvieDetailState.swift */,
+				0983286725C5EFCE003B5B87 /* MovieDetailState.swift */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 				092E8C1B25C3385600E56EEE /* AppDelegate.swift in Sources */,
 				092E8C1D25C3385600E56EEE /* SceneDelegate.swift in Sources */,
 				0983285425C5E21C003B5B87 /* MovieLIst.swift in Sources */,
-				0983286825C5EFCE003B5B87 /* MOvieDetailState.swift in Sources */,
+				0983286825C5EFCE003B5B87 /* MovieDetailState.swift in Sources */,
 				0983284A25C454DA003B5B87 /* MovieBAckCarousel.swift in Sources */,
 				0983286025C5E5F2003B5B87 /* LoadView.swift in Sources */,
 				0983285125C5DDFC003B5B87 /* MoviePOsterCarousel.swift in Sources */,
