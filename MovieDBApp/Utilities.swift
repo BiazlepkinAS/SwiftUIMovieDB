@@ -1,4 +1,3 @@
-
 import Foundation
 
 class Utilities  {
@@ -7,17 +6,11 @@ class Utilities  {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
-        
-        
         return jsonDecoder
     }()
-    
     static let dateFormatter: DateFormatter = {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-mm-dd"
-        
-        
         return dateFormater
     }()
-    
 }

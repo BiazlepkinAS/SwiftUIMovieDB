@@ -8,26 +8,20 @@ class MovieSearchState: ObservableObject {
     @Published var movies: [Movie]?
     @Published var isLoading = false
     @Published var error:NSError?
-    
-    
     private var subscriptionToken: AnyCancellable?
     let movieServece: MovieServices
     init(movieService: MovieServices = MovieStore.shared) {
-        
         self.movieServece = movieService
     }
     
     func startObserve() {
         guard  subscriptionToken == nil  else { return }
-        
         self.subscriptionToken = self.$query
-                .map { [weak self] text in
-                    self?.movies = nil
-                    self?.error = nil
-                    return text
-                    
-                    
-                }.throttle(for: 1, scheduler: DispatchQueue.main, latest: true)
+            .map { [weak self] text in
+                self?.movies = nil
+                self?.error = nil
+                return text
+            }.throttle(for: 1, scheduler: DispatchQueue.main, latest: true)
             .sink { [weak self] in self?.search(query: $0) }
     }
     
@@ -35,8 +29,6 @@ class MovieSearchState: ObservableObject {
         self.movies = nil
         self.isLoading = false
         self.error = nil
-        
-        
         guard !query.isEmpty else {
             return
         }
@@ -50,7 +42,7 @@ class MovieSearchState: ObservableObject {
                 self.movies = response.result
             case .failure(let error):
                 self.error = error as NSError?
-            
+                
             }
         }
     }

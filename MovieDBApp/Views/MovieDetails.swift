@@ -12,7 +12,6 @@ struct MovieDetails: View {
             }
             if movieDetailsState.movie != nil {
                 MovieDetailListView(movie: self.movieDetailsState.movie!)
-                
             }
         }
         .navigationBarTitle(movieDetailsState.movie?.title ?? "" )
@@ -26,14 +25,11 @@ struct MovieDetailListView: View {
     
     let movie: Movie
     @State private var selectTrailer: MovieVideos?
-    
     private let imageLoader = ImageLoader()
-    
     var body: some View {
         List {
             MovieDetailImage(imageLoader: imageLoader, imageURL: self.movie.backDropURL)
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-            
             HStack {
                 Text(movie.genreText)
                 Text(".")
@@ -60,7 +56,6 @@ struct MovieDetailListView: View {
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, alignment: .leading)
                     Spacer()
                 }
-                
                 if movie.crew != nil && movie.crew!.count > 0 {
                     VStack(alignment: .leading, spacing: 4) {
                         if movie.directors != nil && movie.directors!.count > 0 {
@@ -70,7 +65,6 @@ struct MovieDetailListView: View {
                                 Text(crew.name)
                             }
                         }
-                        
                         if movie.produsers != nil && movie.produsers!.count > 0 {
                             Text("Produsers").font(.headline)
                                 .padding(.top)
@@ -78,11 +72,7 @@ struct MovieDetailListView: View {
                                 crew in
                                 Text(crew.name)
                             }
-                            
-                            
-                            
                         }
-                        
                         if movie.screeWriter != nil && movie.screeWriter!.count > 0 {
                             Text("ScreenWriters").font(.headline)
                                 .padding(.top)
@@ -90,7 +80,6 @@ struct MovieDetailListView: View {
                                 crew in
                                 Text(crew.name)
                             }
-                            
                         }
                     }
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, alignment: .leading)
@@ -100,9 +89,7 @@ struct MovieDetailListView: View {
             
             if movie.youtubeTrailer != nil && movie.youtubeTrailer!.count > 0 {
                 Text("Trailers").font(.headline)
-                
                 ForEach(movie.youtubeTrailer!) { trailer in
-                    
                     Button(action: {
                         self.selectTrailer = trailer
                     }) {
@@ -119,7 +106,6 @@ struct MovieDetailListView: View {
         .sheet(item: self.$selectTrailer) { trailer in
             SafariView(url: trailer.youtubeURL!)
         }
-        
     }
 }
 
@@ -127,7 +113,6 @@ struct MovieDetailImage: View {
     
     @ObservedObject var imageLoader: ImageLoader
     let imageURL: URL
-    
     var body: some View {
         ZStack {
             Rectangle().fill(Color.gray.opacity(0.3))

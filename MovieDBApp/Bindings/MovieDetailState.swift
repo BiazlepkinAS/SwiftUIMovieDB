@@ -1,9 +1,3 @@
-//
-//  MOvieDetailState.swift
-//  MovieDBApp
-//
-//  Created by Andrei Bezlepkin on 30.01.21.
-//
 
 import SwiftUI
 
@@ -14,7 +8,6 @@ class MovieDetailState: ObservableObject {
     @Published var isLoading = false
     @Published var error: NSError?
     
-    
     init(movieService: MovieServices = MovieStore.shared) {
         self.movieService = movieService
     }
@@ -24,7 +17,6 @@ class MovieDetailState: ObservableObject {
         self.isLoading = false
         self.movieService.fetchMovie(id: id) { [weak self] (result) in
             guard let self = self else {return}
-            
             self.isLoading = false
             switch result {
             case .success(let movie):

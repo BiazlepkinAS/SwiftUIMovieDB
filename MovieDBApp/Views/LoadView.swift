@@ -7,12 +7,11 @@ struct LoadView: View {
     let retryAction: (() -> ())?
     
     var body: some View {
-        
         Group {
             if isLoading {
                 HStack {
-                ActivityIndicatorView()
-                Spacer()
+                    ActivityIndicatorView()
+                    Spacer()
                 }
             }else if error != nil {
                 HStack {
@@ -27,7 +26,6 @@ struct LoadView: View {
                     }
                 }
                 Spacer()
-                
             }
         }
     }

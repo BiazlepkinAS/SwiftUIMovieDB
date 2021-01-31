@@ -11,22 +11,18 @@ struct SearchBar: UIViewRepresentable {
         
     }
     
-    
     func makeUIView(context: Context) -> UISearchBar {
-        
         let searchBar = UISearchBar(frame: .zero)
         searchBar.placeholder = placeholder
         searchBar.searchBarStyle = .minimal
         searchBar.enablesReturnKeyAutomatically = false
         searchBar.delegate = context.coordinator
-        
         return searchBar
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(text: self.$text)
     }
-        
     
     class Coordinator: NSObject, UISearchBarDelegate {
         
@@ -41,7 +37,5 @@ struct SearchBar: UIViewRepresentable {
         func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
             searchBar.resignFirstResponder()
         }
-        
     }
-    
 }
