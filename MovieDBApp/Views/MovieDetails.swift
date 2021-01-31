@@ -94,6 +94,24 @@ struct MovieDetailListView: View {
                 }
             }
             Divider()
+            
+            if movie.youtubeTrailer != nil && movie.youtubeTrailer!.count > 0 {
+                Text("Trailers").font(.headline)
+                
+                ForEach(movie.youtubeTrailer!) { trailer in
+                    
+                    Button(action: {
+                        
+                    }) {
+                        HStack {
+                            Text(trailer.name)
+                            Spacer()
+                            Image(systemName: "play.circle.fill")
+                                .foregroundColor(Color(UIColor.systemBlue))
+                        }
+                    }
+                }
+            }
         }
     }
 }
