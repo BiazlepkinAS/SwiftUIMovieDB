@@ -12,10 +12,37 @@ struct ContentView: View {  ///login - email@gmail.com PSW - FaceID
             
             if logged{
                 
-                Text("User Logged in ....")
-                    .navigationTitle("Home")
-                    .navigationBarHidden(false)
-                    .preferredColorScheme(.light)
+//                Text("User Logged in ....")
+//                    .navigationTitle("Home")
+//                    .navigationBarHidden(false)
+//                    .preferredColorScheme(.light)
+                TabView {
+                    MovieLIst()
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "tv")
+                                Text("Movies")
+                            }
+                        }
+                    tag(0)
+                    
+                    MovieSearchView()
+                        .tabItem {
+                            VStack {
+                                Image(systemName:  "magnifyingglass")
+                                Text("Search")
+                            }
+                        }
+                    tag(1)
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
             }
             else {
                

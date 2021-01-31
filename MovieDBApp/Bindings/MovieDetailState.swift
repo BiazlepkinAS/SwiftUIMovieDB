@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class MOvieDetailState: ObservableObject {
+class MovieDetailState: ObservableObject {
     
     private let movieService: MovieServices
     @Published var movie: Movie?
