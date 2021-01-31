@@ -2,7 +2,6 @@ import SwiftUI
 import LocalAuthentication
 
 struct ContentView: View {  ///login - email@gmail.com PSW - FaceID
-    
     @AppStorage("status") var logged = false
     var body: some View {
         NavigationView{
@@ -151,7 +150,6 @@ struct HomeCsreen: View {
         }
         return false
     }
-    
     func autheficateUser() {
         let scanner = LAContext()
         scanner.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To unlock\(userName)") { (status, error) in
