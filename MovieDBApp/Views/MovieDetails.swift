@@ -12,7 +12,7 @@ struct MovieDetails: View {
             }
             if movieDetailsState.movie != nil {
                 MovieDetailListView(movie: self.movieDetailsState.movie!)
-                   
+                
             }
         }
         .navigationBarTitle(movieDetailsState.movie?.title ?? "" )
@@ -43,6 +43,55 @@ struct MovieDetailListView: View {
                     Text(movie.durationText).foregroundColor(.yellow)
                 }
                 Text(movie.scoreText)
+            }
+            Divider()
+            
+            HStack(alignment: .top, spacing: 4) {
+                if movie.casts != nil && movie.casts!.count > 0 {
+                    VStack(alignment: .leading , spacing: 4) {
+                        Text("Starring").font(.headline)
+                        ForEach(self.movie.casts!.prefix(9)) { casts in
+                            Text(casts.name)
+                        }
+                    }
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                }
+                
+                if movie.crew != nil && movie.crew!.count > 0 {
+                    VStack(alignment: .leading, spacing: 4) {
+                        if movie.directors != nil && movie.directors!.count > 0 {
+                            Text("Directors").font(.headline)
+                            ForEach(self.movie.directors!.prefix(2)) {
+                                crew in
+                                Text(crew.name)
+                            }
+                        }
+                        
+                        if movie.produsers != nil && movie.produsers!.count > 0 {
+                            Text("Produsers").font(.headline)
+                                .padding(.top)
+                            ForEach(self.movie.produsers!.prefix(2)) {
+                                crew in
+                                Text(crew.name)
+                            }
+                            
+                            
+                            
+                        }
+                        
+                        if movie.screeWriter != nil && movie.screeWriter!.count > 0 {
+                            Text("ScreenWriters").font(.headline)
+                                .padding(.top)
+                            ForEach(self.movie.screeWriter!.prefix(2)) {
+                                crew in
+                                Text(crew.name)
+                            }
+                            
+                        }
+                    }
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, alignment: .leading)
+                }
             }
             Divider()
         }

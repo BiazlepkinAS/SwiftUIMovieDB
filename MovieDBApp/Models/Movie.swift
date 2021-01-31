@@ -104,13 +104,13 @@ struct MovieCredit: Decodable {
     let crew: [MovieCrew]
 }
 
-struct MovieCast: Decodable {
+struct MovieCast: Decodable, Identifiable {
     let id: Int
     let character: String
     let name: String
 }
 
-struct MovieCrew: Decodable {
+struct MovieCrew: Decodable, Identifiable {
     let id: Int
     let job: String
     let name: String
