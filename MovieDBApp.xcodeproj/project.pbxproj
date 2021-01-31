@@ -32,6 +32,7 @@
 		0983286025C5E5F2003B5B87 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983285F25C5E5F2003B5B87 /* LoadView.swift */; };
 		0983286525C5EF28003B5B87 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286425C5EF28003B5B87 /* MovieDetails.swift */; };
 		0983286825C5EFCE003B5B87 /* MovieDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286725C5EFCE003B5B87 /* MovieDetailState.swift */; };
+		0983286C25C6E80D003B5B87 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983286B25C6E80D003B5B87 /* SafariView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		0983285F25C5E5F2003B5B87 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
 		0983286425C5EF28003B5B87 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		0983286725C5EFCE003B5B87 /* MovieDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailState.swift; sourceTree = "<group>"; };
+		0983286B25C6E80D003B5B87 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				0983285B25C5E49B003B5B87 /* ActivityIndicatorView.swift */,
+				0983286B25C6E80D003B5B87 /* SafariView.swift */,
 			);
 			path = KitViews;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				092E8C1D25C3385600E56EEE /* SceneDelegate.swift in Sources */,
 				0983285425C5E21C003B5B87 /* MovieLIst.swift in Sources */,
 				0983286825C5EFCE003B5B87 /* MovieDetailState.swift in Sources */,
+				0983286C25C6E80D003B5B87 /* SafariView.swift in Sources */,
 				0983284A25C454DA003B5B87 /* MovieBAckCarousel.swift in Sources */,
 				0983286025C5E5F2003B5B87 /* LoadView.swift in Sources */,
 				0983285125C5DDFC003B5B87 /* MoviePOsterCarousel.swift in Sources */,

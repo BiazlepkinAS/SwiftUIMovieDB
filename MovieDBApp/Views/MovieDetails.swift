@@ -25,10 +25,13 @@ struct MovieDetails: View {
 struct MovieDetailListView: View {
     
     let movie: Movie
+    @State private var selectTrailer: MovieVideos?
+    
+    private let imageLoader = ImageLoader()
     
     var body: some View {
         List {
-            MovieDetailImage(imageURL: self.movie.backDropURL)
+            MovieDetailImage(imageLoader: imageLoader, imageURL: self.movie.backDropURL)
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
             HStack {
@@ -101,7 +104,7 @@ struct MovieDetailListView: View {
                 ForEach(movie.youtubeTrailer!) { trailer in
                     
                     Button(action: {
-                        
+                        self.selectTrailer = trailer
                     }) {
                         HStack {
                             Text(trailer.name)
@@ -113,12 +116,16 @@ struct MovieDetailListView: View {
                 }
             }
         }
+        .sheet(item: self.$selectTrailer) { trailer in
+            SafariView(url: trailer.youtubeURL!)
+        }
+        
     }
 }
 
 struct MovieDetailImage: View {
     
-    @ObservedObject private var imageLoader = ImageLoader()
+    @ObservedObject var imageLoader: ImageLoader
     let imageURL: URL
     
     var body: some View {
