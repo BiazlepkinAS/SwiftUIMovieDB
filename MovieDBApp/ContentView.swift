@@ -6,11 +6,6 @@ struct ContentView: View {  ///login - email@gmail.com PSW - FaceID
     var body: some View {
         NavigationView{
             if logged{
-                
-                //                Text("User Logged in ....")
-                //                    .navigationTitle("Home")
-                //                    .navigationBarHidden(false)
-                //                    .preferredColorScheme(.light)
                 TabView {
                     MovieLIst()
                         .tabItem {

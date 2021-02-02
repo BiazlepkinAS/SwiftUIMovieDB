@@ -1,9 +1,11 @@
+
 import SwiftUI
 class MovieListState: ObservableObject {
+    
+    private let movieServise: MovieServices
     @Published var movies:  [Movie]?
     @Published var isLoading = false
     @Published var error: NSError?
-    private let movieServise: MovieServices
     
     init(movieSetvice:  MovieServices = MovieStore.shared) {
         self.movieServise = movieSetvice

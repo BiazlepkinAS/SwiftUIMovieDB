@@ -7,12 +7,12 @@ class MovieStore: MovieServices {
     static let shared = MovieStore()
     private init() {}
     private let apiKey = "9d82ef2d5ffc63b8ed6871d61e7944f2"
-    private let  baseApiURL = "https:// api.themoviedb.org/3"
+    private let  baseApiURL = "https://api.themoviedb.org/3"
     private let urlSession = URLSession.shared
     private let jsonDecoder = Utilities.jsonDecoder
     
-    func fetchMovie(from endpoint: MovieListEndPoints, completion: @escaping (Result<MovieResponce, MovieError>) -> ()) {
-        guard let url = URL(string: "\(baseApiURL)/movie/\(endpoint.rawValue)") else {
+    func fetchMovie(from endPoint: MovieListEndPoints, completion: @escaping (Result<MovieResponce, MovieError>) -> ()) {
+        guard let url = URL(string: "\(baseApiURL)/movie/\(endPoint.rawValue)") else {
             completion(.failure(.invalidEndPoint))
             return
         }
@@ -24,7 +24,9 @@ class MovieStore: MovieServices {
             completion(.failure(.invalidEndPoint))
             return
         }
-        self.loadURLandDecode(url: url, parametrs: ["append_to_response":"videos, credits"], completion: completion)
+        self.loadURLandDecode(url: url, parametrs: [
+            "append_to_response": "videos,credits"
+        ], completion: completion)
     }
     
     func searchingMovie(query: String, completion: @escaping (Result<MovieResponce, MovieError>) -> ()) {
@@ -32,7 +34,12 @@ class MovieStore: MovieServices {
             completion(.failure(.invalidEndPoint))
             return
         }
-        self.loadURLandDecode(url: url, parametrs: ["language":"en-EN", "include_adult": "false", "region": "US", "query": query] , completion: completion) // change to RU
+        self.loadURLandDecode(url: url, parametrs: [
+            "language": "en-US",
+            "include_adult": "false",
+            "region": "US",
+            "query": query
+        ], completion: completion) // change to RU
     }
     
     private func loadURLandDecode<D: Decodable>(url: URL, parametrs: [String: String]? = nil, completion: @escaping(Result<D, MovieError>) -> ()) {
@@ -46,6 +53,7 @@ class MovieStore: MovieServices {
             queryItems.append(contentsOf: parametrs.map { URLQueryItem(name: $0.key, value: $0.value) })
         }
         urlComponents.queryItems = queryItems
+        
         guard let finalURL = urlComponents.url else {
             completion(.failure(.invalidEndPoint))
             return

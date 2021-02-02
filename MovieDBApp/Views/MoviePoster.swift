@@ -5,6 +5,7 @@ struct MoviePoster: View {
     
     let movie: Movie
     @ObservedObject var imageLoader = ImageLoader()
+    
     var body: some View {
         
         ZStack {
@@ -12,13 +13,15 @@ struct MoviePoster: View {
             if self.imageLoader.image != nil {
                 Image(uiImage: self.imageLoader.image!)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .cornerRadius(8)
                     .shadow(radius: 4)
                 
             } else {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
+                    .cornerRadius(8)
+                    .shadow(radius: 4)
                 
                 Text(movie.title)
                     .multilineTextAlignment(.center)
