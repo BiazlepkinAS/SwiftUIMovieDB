@@ -1,8 +1,7 @@
 
 import SwiftUI
 
-struct MovieBackCard: View {
-    
+struct MovieBackCard: View {    
     let movie: Movie
     @ObservedObject var imageLoader = ImageLoader()
     
@@ -28,7 +27,6 @@ struct MovieBackCard: View {
         }
     }
 }
-
 struct MovieBackCard_Previews: PreviewProvider {
     static var previews: some View {
         MovieBackCard(movie: Movie.stubbedMovie)
