@@ -1,3 +1,4 @@
+
 import Foundation
 import SwiftUI
 import Combine
@@ -7,7 +8,8 @@ class MovieSearchState: ObservableObject {
     @Published var query = ""
     @Published var movies: [Movie]?
     @Published var isLoading = false
-    @Published var error:NSError?
+    @Published var error: NSError?
+    
     private var subscriptionToken: AnyCancellable?
     let movieServece: MovieServices
     

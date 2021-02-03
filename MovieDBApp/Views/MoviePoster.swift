@@ -4,6 +4,7 @@ import SwiftUI
 struct MoviePoster: View {
     
     let movie: Movie
+    
     @ObservedObject var imageLoader = ImageLoader()
     
     var body: some View {

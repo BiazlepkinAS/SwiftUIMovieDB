@@ -14,29 +14,33 @@ struct MovieLIst: View {
             List {
                 Group {
                     if nowPlayingState.movies != nil {
-                        MoviePosterCarousel(title: "Now playing", movies: nowPlayingState.movies!)
+                        MoviePosterCarousel(title: "Now playing", movies:
+                                            nowPlayingState.movies!)
                     } else {
                         LoadView(isLoading: nowPlayingState.isLoading, error: nowPlayingState.error) {
                             self.nowPlayingState.loadMovies(with: .nowPlaying)
                         }
                     }
                 }
-                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                .listRowInsets(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
                 Group {
                     if upCommingState.movies != nil {
-                        MovieBAckCarousel(title: "Upcoming", movies: upCommingState.movies!)
+                        MovieBAckCarousel(title: "Upcoming", movies:
+                                            upCommingState.movies!)
                     } else {
                         LoadView(isLoading: upCommingState.isLoading, error: upCommingState.error) {
                             self.upCommingState.loadMovies(with: .upComing)
                         }
                     }
                 }
-                .listRowInsets(EdgeInsets(top: 16, leading: 0, bottom:16, trailing: 0))
+                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom:8, trailing: 0))
                 Group {
                     if topRatedState.movies != nil {
-                        MovieBAckCarousel(title: "Top raited", movies: topRatedState.movies!)
+                        MovieBAckCarousel(title: "Top raited", movies:
+                                            topRatedState.movies!)
                     } else {
-                        LoadView(isLoading: topRatedState.isLoading, error: topRatedState.error) {
+                        LoadView(isLoading: topRatedState.isLoading, error:
+                                    topRatedState.error) {
                             self.topRatedState.loadMovies(with: .topRated)
                         }
                     }
@@ -44,9 +48,11 @@ struct MovieLIst: View {
                 .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                 Group {
                     if popularState.movies != nil {
-                        MovieBAckCarousel(title: "Popular", movies: popularState.movies!)
+                        MovieBAckCarousel(title: "Popular", movies:
+                                            popularState.movies!)
                     } else {
-                        LoadView(isLoading: popularState.isLoading, error: popularState.error) {
+                        LoadView(isLoading: popularState.isLoading, error:
+                                    popularState.error) {
                             self.popularState.loadMovies(with: .popular)
                         }
                     }

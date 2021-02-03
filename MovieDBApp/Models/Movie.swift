@@ -52,7 +52,7 @@ struct Movie: Decodable, Identifiable, Hashable {
     var raitingText: String {
         let rating = Int(voteAverage)
         let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
-            return acc + "⭐️"
+            return acc + "*"
         }
         return ratingText
     }

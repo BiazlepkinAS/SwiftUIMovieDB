@@ -29,7 +29,7 @@ struct MoviePosterCarousel: View {
 
 struct MoviePOsterCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        MoviePosterCarousel(title: "now playing", movies: Movie.stubbedMovies)
+        MoviePosterCarousel(title: "Now playing", movies: Movie.stubbedMovies)
         
     }
 }

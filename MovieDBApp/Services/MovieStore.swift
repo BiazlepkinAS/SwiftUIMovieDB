@@ -6,6 +6,7 @@ class MovieStore: MovieServices {
     
     static let shared = MovieStore()
     private init() {}
+    
     private let apiKey = "9d82ef2d5ffc63b8ed6871d61e7944f2"
     private let  baseApiURL = "https://api.themoviedb.org/3"
     private let urlSession = URLSession.shared
@@ -63,7 +64,6 @@ class MovieStore: MovieServices {
             guard let self = self else { return }
             if error != nil {
                 self.executeCompletionHandinMainThread(with: .failure(.apiError), completion: completion)
-                completion(.failure(.apiError))
                 return
             }
             guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {

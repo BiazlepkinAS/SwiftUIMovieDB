@@ -17,7 +17,7 @@ enum MovieListEndPoints: String, CaseIterable, Identifiable {
     
     var description: String {
         switch self {
-        case .nowPlaying: return "Now playing"
+        case .nowPlaying: return "Now Playing"
         case .upComing: return "Upcoming"
         case .topRated: return "Top Rated"
         case .popular: return "Popular"
