@@ -1,3 +1,4 @@
+
 import Foundation
 import SwiftUI
 import Combine
@@ -7,9 +8,14 @@ class MovieSearchState: ObservableObject {
     @Published var query = ""
     @Published var movies: [Movie]?
     @Published var isLoading = false
-    @Published var error:NSError?
+    @Published var error: NSError?
+    
     private var subscriptionToken: AnyCancellable?
     let movieServece: MovieServices
+    
+    var isEmptyResults: Bool {
+        !self.query.isEmpty && self.movies != nil && self.movies!.isEmpty
+    }
     init(movieService: MovieServices = MovieStore.shared) {
         self.movieServece = movieService
     }
@@ -41,7 +47,7 @@ class MovieSearchState: ObservableObject {
             case .success(let response):
                 self.movies = response.result
             case .failure(let error):
-                self.error = error as NSError?
+                self.error = error as NSError
                 
             }
         }

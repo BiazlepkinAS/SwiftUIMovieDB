@@ -5,7 +5,14 @@ struct MovieResponce: Decodable {
     let result: [Movie]
 }
 
-struct Movie: Decodable, Identifiable {
+struct Movie: Decodable, Identifiable, Hashable {
+    
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        lhs.id == rhs.id
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
     
     let id: Int
     let title: String
@@ -16,14 +23,17 @@ struct Movie: Decodable, Identifiable {
     let voteCount: Int
     let runtime: Int?
     let releaseDate: String?
+    
     let genres: [MovieGenre]?
     let credits: MovieCredit?
     let videos: MovieVodeoResponse?
+    
     static private var yearFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         return formatter
     }()
+    
     static private let durationFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .full
@@ -42,7 +52,7 @@ struct Movie: Decodable, Identifiable {
     var raitingText: String {
         let rating = Int(voteAverage)
         let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
-            return acc + "⭐️"
+            return acc + "*"
         }
         return ratingText
     }

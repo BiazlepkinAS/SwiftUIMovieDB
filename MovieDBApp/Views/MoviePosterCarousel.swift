@@ -6,6 +6,7 @@ struct MoviePosterCarousel: View {
     let movies: [Movie]
     
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 16) {
             Text(title)
                 .font(.title)
@@ -14,8 +15,7 @@ struct MoviePosterCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
                     ForEach(self.movies) { movie in
-                        NavigationLink(
-                            destination: MovieDetails(movieID: movie.id)) {
+                        NavigationLink(destination: MovieDetails(movieID: movie.id)) {
                             MoviePoster(movie: movie)
                         } .buttonStyle(PlainButtonStyle())
                         .padding(.leading, movie.id == self.movies.first!.id ? 16 : 0)
@@ -29,7 +29,7 @@ struct MoviePosterCarousel: View {
 
 struct MoviePOsterCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        MoviePosterCarousel(title: "now playing", movies: Movie.stubbedMovies)
+        MoviePosterCarousel(title: "Now playing", movies: Movie.stubbedMovies)
         
     }
 }

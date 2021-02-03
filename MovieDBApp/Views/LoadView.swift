@@ -10,6 +10,7 @@ struct LoadView: View {
         Group {
             if isLoading {
                 HStack {
+                    Spacer()
                     ActivityIndicatorView()
                     Spacer()
                 }
@@ -18,14 +19,16 @@ struct LoadView: View {
                     Spacer()
                     VStack(spacing: 4) {
                         Text(error!.localizedDescription).font(.headline)
-                        Button(action: self.retryAction!) {
-                            Text("Retry")
+                        if self.retryAction != nil {
+                            Button(action: self.retryAction!) {
+                                Text("Retry")
+                            }
+                            .foregroundColor(Color(UIColor.systemTeal))
+                            .buttonStyle(PlainButtonStyle())
                         }
-                        .foregroundColor(Color(UIColor.systemTeal))
-                        .buttonStyle(PlainButtonStyle())
                     }
+                    Spacer()
                 }
-                Spacer()
             }
         }
     }

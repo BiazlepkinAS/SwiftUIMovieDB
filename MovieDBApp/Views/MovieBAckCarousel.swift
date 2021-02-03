@@ -5,12 +5,15 @@ struct MovieBAckCarousel: View {
     
     let title: String
     let movies: [Movie]
+    
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 0){
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.horizontal)
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
                     ForEach(self.movies) { movie in

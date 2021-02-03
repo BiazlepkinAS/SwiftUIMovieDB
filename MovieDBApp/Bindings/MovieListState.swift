@@ -1,11 +1,13 @@
+
 import SwiftUI
 class MovieListState: ObservableObject {
+    
     @Published var movies:  [Movie]?
-    @Published var isLoading = false
+    @Published var isLoading: Bool = false
     @Published var error: NSError?
     private let movieServise: MovieServices
     
-    init(movieSetvice:  MovieServices = MovieStore.shared) {
+    init(movieSetvice: MovieServices = MovieStore.shared) {
         self.movieServise = movieSetvice
     }
     
@@ -17,7 +19,7 @@ class MovieListState: ObservableObject {
             self.isLoading = false
             
             switch result {
-            case .success(let response) :
+            case .success(let response):
                 self.movies = response.result
             case .failure(let error):
                 self.error = error as NSError

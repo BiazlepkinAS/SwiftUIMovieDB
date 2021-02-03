@@ -148,8 +148,8 @@
 		092E8C4325C3F43600E56EEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				092E8C4525C3F50700E56EEE /* movie_info.json */,
 				092E8C4425C3F50700E56EEE /* movie_list.json */,
+				092E8C4525C3F50700E56EEE /* movie_info.json */,
 				092E8C4625C3F50700E56EEE /* search_movie.json */,
 			);
 			path = Resources;
@@ -175,8 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				092E8C5125C3F7CC00E56EEE /* ImageLoader.swift */,
-				0983285625C5E242003B5B87 /* MovieListState.swift */,
 				0983286725C5EFCE003B5B87 /* MovieDetailState.swift */,
+				0983285625C5E242003B5B87 /* MovieListState.swift */,
 				0983287425C72001003B5B87 /* MovieSearchState.swift */,
 			);
 			path = Bindings;

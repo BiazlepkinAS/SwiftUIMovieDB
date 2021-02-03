@@ -25,7 +25,7 @@ struct MovieDetailListView: View {
     
     let movie: Movie
     @State private var selectTrailer: MovieVideos?
-    private let imageLoader = ImageLoader()
+    let imageLoader = ImageLoader()
     var body: some View {
         List {
             MovieDetailImage(imageLoader: imageLoader, imageURL: self.movie.backDropURL)
@@ -38,7 +38,7 @@ struct MovieDetailListView: View {
             }
             Text(movie.overview)
             HStack {
-                if movie.raitingText.isEmpty {
+                if !movie.raitingText.isEmpty {
                     Text(movie.durationText).foregroundColor(.yellow)
                 }
                 Text(movie.scoreText)

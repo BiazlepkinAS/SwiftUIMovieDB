@@ -1,9 +1,9 @@
 
 import Foundation
 
-
 protocol MovieServices {
-    func fetchMovie(from endPoint: MovieListEndPoints, completion: @escaping (Result<MovieResponce, MovieError>) -> ())
+    
+    func fetchMovie(from endpoint: MovieListEndPoints, completion: @escaping (Result<MovieResponce, MovieError>) -> ())
     func fetchMovie(id: Int, completion: @escaping (Result<Movie, MovieError>) ->())
     func searchingMovie(query: String, completion: @escaping (Result<MovieResponce, MovieError>) -> ())
 }
@@ -13,10 +13,11 @@ enum MovieListEndPoints: String, CaseIterable, Identifiable {
     case nowPlaying = "now_playing"
     case upComing
     case topRated = "top_rated"
-    case popular    
+    case popular
+    
     var description: String {
         switch self {
-        case .nowPlaying: return "Now playing"
+        case .nowPlaying: return "Now Playing"
         case .upComing: return "Upcoming"
         case .topRated: return "Top Rated"
         case .popular: return "Popular"
@@ -24,7 +25,7 @@ enum MovieListEndPoints: String, CaseIterable, Identifiable {
     }
 }
 
-enum MovieError: Error , CustomNSError{
+enum MovieError: Error, CustomNSError{
     case apiError
     case invalidEndPoint
     case invalideResponse
